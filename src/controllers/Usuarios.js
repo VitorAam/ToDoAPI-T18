@@ -18,6 +18,7 @@ class Usuarios{
             /**
              * Método send informando o que vamos enviar para a outra ponta do servidor (Aquela que fez a requisição para a gente.)
              */
+            const usuario = new UsuarioModel()
             res.send("Rota usuários!")
         })
     }
