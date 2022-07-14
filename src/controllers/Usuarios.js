@@ -1,3 +1,8 @@
+import ValidacoesService from "../services/ValidacoesService.js"
+import UsuarioModel from "../models/UsuarioModel.js"
+
+
+
 /**
  * Classe que irá gerenciar toda a rota de Usuários da nossa aplicação
  */
@@ -18,8 +23,15 @@ class Usuarios{
             /**
              * Método send informando o que vamos enviar para a outra ponta do servidor (Aquela que fez a requisição para a gente.)
              */
-            const usuario = new UsuarioModel()
-            res.send("Rota usuários!")
+            const nome = 'Vitor'
+            const telefone = '998857684'
+            const isValid = ValidacoesService.validaNome(nome) && ValidacoesService.validaTelefone(telefone)
+            if(isValid){
+                const usuario = new UsuarioModel('Vitor', 'vitor.oom@gmail.com', '996568347')
+                res.send("Rota usuários!")
+            } else {
+                res.status(400).send('Erro')
+            }
         })
     }
 }

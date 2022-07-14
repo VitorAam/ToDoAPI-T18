@@ -12,6 +12,7 @@ import * as dotenv from "dotenv"
  * Importando controller da Entidade(leia também como rota) Usuarios
  */
 import Usuarios from "./src/controllers/Usuarios.js"
+import Tarefas from "./src/controllers/Tarefas.js"
 
 /**
  * Execução do método config da biblioteca dotenv
@@ -23,7 +24,7 @@ dotenv.config()
  * Definindo uma variável para a porta que deixará nossa aplicação disponível
  * O comando 'process.env' serve para acessar variável de ambiente, util quando chegar o momento de subir a aplicação
  */
-const port =  process.env.PORT || 3000;
+const port =  process.env.PORT || 3002;
 
 /**
  * Instancia do express sendo atribuída em uma variável de nome app para melhor utilização
@@ -49,3 +50,4 @@ app.listen(port, ()=>{
  * Assim o arquivo presente no controller consegue acessar utilizar o nosso express
  */
 Usuarios.rotas(app)
+Tarefas.rotas(app)
