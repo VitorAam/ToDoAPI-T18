@@ -1,7 +1,5 @@
-import ValidacoesService from "../services/ValidacoesService.js"
-import UsuarioModel from "../models/UsuarioModel.js"
-
-
+import UsuarioModel from "../models/UsuarioModel.js";
+import ValidacoesService from "../services/ValidacoesService.js";
 
 /**
  * Classe que irá gerenciar toda a rota de Usuários da nossa aplicação
