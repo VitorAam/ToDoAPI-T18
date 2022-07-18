@@ -1,4 +1,4 @@
-class ValidacoesService{
+export default class ValidacoesService{
     static validaNome(nome){
         return nome.length >= 3
     }
@@ -13,5 +13,3 @@ class ValidacoesService{
         return this.validaNome(nome) && this.validaTelefone(telefone) && this.validaEmail(email)
     }
 }
-
-export default ValidacoesService
