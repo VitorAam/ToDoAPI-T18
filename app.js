@@ -18,12 +18,13 @@ const app = express()
 app.listen(port, ()=>{
     console.log(`Servidor online no endereço http://localhost:${port}`)
 })
-
-
 /**
  * Chamada do método de controle de rotas do Controller Usuários
  * Nessa chamada passamos a váriavel app, que armazena nosso express como parametro
  * Assim o arquivo presente no controller consegue acessar utilizar o nosso express
  */
+
+app.use(express.json())
+
 Usuarios.rotas(app)
 Tarefas.rotas(app)
