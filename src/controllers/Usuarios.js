@@ -11,15 +11,28 @@ class Usuarios {
             res.status(200).json(response)
         })
 
+        app.get("/usuarios/:email", (req, res)=>{
+            if(filtraEmail){
+            }
+        })
+
         app.post("/usuarios", (req, res)=>{
             const isValid = ValidacoesService.validaNome(req.body.nome)
             if(isValid){
                 const usuario = new UsuarioModel(Object.values(req.body))
                 const response = DatabaseMetodos.inserirUsuario(usuario)
                 res.status(201).json(response)
-
             } else {
                 res.status(400).send('Erro')
+            }
+        })
+
+        app.delete("/usuarios/:index", (req, res) => {
+            if (ValidacoesService.validaIndex(req.params.index, Database.Usuarios)){
+                const usuario = DatabaseMetodos.deletaUsuariosPorId(req.params.index)
+                res.status(200).json(usuario)
+            } else {
+                res.status(404).json({Error: "Usuário não encontrado"})
             }
         })
     }
