@@ -1,38 +1,35 @@
 export default class ValidacoesService{
     /**
-     * Validação do nome do usuário
+     * 
      * @param {string} nome 
      * @returns boolean
      */
-
     static validaNome(nome){
         return nome.length >= 3
     }
 
     /**
-     * Validação de email utilizando regex
+     * Método que valida se o e-mail está no padrão "string@string.com"
      * @param {string} email 
      * @returns boolean
      */
-
     static validaEmail(email){
-        const emailValidado = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i
-        return emailValidado.test(email)
+        const regex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i
+        return regex.test(email)
     }
 
-
     /**
-     * Validação de telefone utilizando parseint
+     * 
      * @param {string} telefone 
      * @returns boolean
      */
     static validaTelefone(telefone){
-        const telefoneValidado = parseInt(telefone)
-        return telefoneValidado == telefone
+        const tel = parseInt(telefone)
+        return tel == telefone
     }
 
     /**
-     * Validação geral, utilizando os outros três metódos presentes acima
+     * 
      * @param {string} nome 
      * @param {string} email 
      * @param {string} telefone 
